@@ -3,11 +3,11 @@ function testOptional(title, fn, isAsyncTest) {
     it(title, function test(done) {
       try {
         fn.call(this, done);
-      } catch (err) {
+      } catch (error) {
         if (err.message === 'Not implemented') {
           this.test.skip();
         } else {
-          throw err;
+          throw error;
         }
       }
     });
@@ -15,11 +15,11 @@ function testOptional(title, fn, isAsyncTest) {
     it(title, function test() {
       try {
         fn.call(this);
-      } catch (err) {
+      } catch (error) {
         if (err.message === 'Not implemented') {
           this.test.skip();
         } else {
-          throw err;
+          throw error;
         }
       }
     });
